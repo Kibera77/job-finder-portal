@@ -1,0 +1,105 @@
+{% load static %}
+
+<!-- Footer -->
+<footer class="page-footer bg-dark fixed">
+
+    <!-- Footer Links -->
+    <div class="container text-center text-md-left">
+
+        <!-- Grid row -->
+        <div class="row">
+
+            <!-- Grid column -->
+            <div class="col-md-3 mx-auto">
+
+                <!-- Links -->
+                <h5 class="font-weight-bold text-uppercase mt-3 mb-4">ABOUT US</h5>
+                <P class="text-muted">
+                    layouts are used to include other widgets inside the main screen window
+                    to make the layouts responsive, set the size_hint to None and then manually set the size: i.e
+                    Button:
+                </P>
+
+
+            </div>
+            <!-- Grid column -->
+
+            <hr class="clearfix w-100 d-md-none">
+
+            <!-- Grid column -->
+            <div class="col-md-3 mx-auto">
+
+                <!-- Links -->
+                <h5 class="font-weight-bold text-uppercase mt-3 mb-4">CONTACT INFO</h5>
+                <P class="text-muted">Your address here <br>
+                    Your demo here
+                </P>
+                <p>
+                    Phone : +254712345678 <br>
+                    Email : info@gmail.com
+                </p>
+
+
+            </div>
+            <!-- Grid column -->
+
+            <hr class="clearfix w-100 d-md-none">
+
+            <!-- Grid column -->
+            <div class="col-md-3 mx-auto">
+
+                <!-- Links -->
+                <h5 class="font-weight-bold text-uppercase mt-3 mb-4">IMPORTANT LINKS</h5>
+
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="{% url 'home' %}">Home</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'job_search' %}">Find A Job</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'about' %}">About</a>
+                    </li>
+                    <li>
+                        <a href="{% url 'contact' %}">Contact Us</a>
+                    </li>
+                </ul>
+
+            </div>
+            <!-- Grid column -->
+
+            <hr class="clearfix w-100 d-md-none">
+
+            <!-- Grid column -->
+            <div class="col-md-3 mx-auto">
+
+                <!-- Links -->
+                <h5 class="font-weight-bold text-uppercase mt-3 mb-4">NEWSLETTER</h5>
+                <P class="text-muted">
+                    Sing up with to our newsletter to be receiving more notifications on job availability
+                </P>
+                <form action="/send_plain_mail">
+                    {% csrf_token %}
+
+                    <input class="form-control" type="email" name="email" placeholder="Enter Address">
+                    <button class="btn btn-primary btn-sm ml-0">Send</button>
+
+                </form>
+
+            </div>
+            <!-- Grid column -->
+
+        </div>
+        <!-- Grid row -->
+
+    </div>
+    <!-- Footer Links -->
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2021 Copyright:
+        <a href="{% url 'home' %}"> Find A Job</a>
+    </div>
+    <!-- Copyright -->
+
+</footer>

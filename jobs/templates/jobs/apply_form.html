@@ -1,0 +1,62 @@
+{% extends 'jobs/base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+
+<!-- Header start -->
+{% block navbar %}
+{% endblock %}
+<!-- Header end -->
+
+<!-- brand -->
+{% block brand %}
+{% endblock %}
+<!--brand end -->
+
+<!-- sliders -->
+{% block sliders %}
+{% endblock %}
+<!--sliders end -->
+
+
+{% block content %}
+
+<section>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-2">
+                <h2>
+                <a class="btn btn-primary btn-sm" href="{% url 'job_search' %}">Back</a>
+                </h2>
+            </div>
+            <div class="col-md-8 border-box">
+                <h2 class="align-center">JOB APPLICATION FORM</h2>
+                <H3>Applicant's profile</H3>
+                <br>
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <fieldset class="form-group">
+                        {{ form|crispy }}
+                    </fieldset>
+
+                    <div class="form-group">
+                        <input type="submit" name="submit" class="btn btn-block btn-success" value="Submit Details">
+                    </div>
+
+                </form>
+            </div>
+        </div>
+
+    </div>
+
+
+
+    </div>
+</section>
+{% endblock content %}
+
+{% block footer %}
+{% endblock %}
+
+

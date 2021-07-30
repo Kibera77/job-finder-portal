@@ -1,0 +1,46 @@
+{% extends 'jobs/base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+<!-- Header start -->
+{% block navbar %}
+{% endblock %}
+<!-- Header end -->
+
+<!-- brand -->
+{% block brand %}
+{% endblock %}
+<!--brand end -->
+<!-- sliders -->
+{% block sliders %}
+{% endblock %}
+<!--sliders end -->
+
+
+{% block content %}
+
+<section>
+
+    <div class="container">
+        <div class="row">
+
+        <div class="col-md-3">
+
+        </div>
+            <div class="col-md-5 border">
+                <p class=" text-secondary m-2 align-center">You Have Been Logged Out Of The Session</p>
+                <span class="text-info m-2"><a href="{% url 'login' %}">Login Again</a></span>
+                <hr>
+                <span class="text-info m-2" ><a href="{% url 'home' %}">Back to Homepage</a></span>
+            </div>
+        </div>
+
+
+    </div>
+</section>
+{% endblock content %}
+
+{% block footer %}
+{% endblock %}
+
+

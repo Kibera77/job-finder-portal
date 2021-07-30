@@ -1,0 +1,102 @@
+<br>
+<label for="JobCategory" style="font-weight: bold;">Job Category</label>
+<select name="categories" id="" class="form-control">
+
+    <option disabled>--Categories--</option>
+    {% for cat in categories %}
+    <option value="drop"></option>
+    {% endfor %}
+</select>
+
+
+<br>
+<label for="jobtype" style=" font-weight: bold;">Job Type</label>
+<div class="form-check">
+
+    <input type="checkbox" class="form-check-input">
+    <label class="form-check-label">Full Time</label>
+    <br>
+
+    <input type="checkbox" class="form-check-input">
+    <label class="form-check-label">Part Time</label>
+    <br>
+    <input type="checkbox" class="form-check-input">
+    <label class="form-check-label">Remote</label>
+    <br>
+    <input type="checkbox" class="form-check-input">
+    <label class="form-check-label">Freelance</label>
+    <br>
+</div>
+
+<label for="JobCategory" style="font-weight: bold;">Location</label>
+<select name="categories" class="form-control">
+    <option disabled>--Location--</option>
+    {% for location in locations %}
+    <option value="">{{ location.loc_name }}</option>
+    {% endfor %}
+</select>
+<br>
+<label for="jobtype" style=" font-weight: bold;">Experience</label>
+<div class="form-check">
+
+    <input type="checkbox" class="form-check-input">
+    <label class="form-check-label">Under 2 Years</label>
+    <br>
+
+    <input type="checkbox" class="form-check-input">
+    <label class="form-check-label">2-6 Years</label>
+    <br>
+    <input type="checkbox" class="form-check-input">
+    <label class="form-check-label">6-9 Years</label>
+    <br>
+    <input type="checkbox" class="form-check-input">
+    <label class="form-check-label">Over 10 Years</label>
+    <br>
+</div>
+<br>
+<label for="jobtype" style=" font-weight: bold;">Posted Within</label>
+<div class="form-check">
+
+    <input type="checkbox" class="form-check-input">
+    <label class="form-check-label">Any</label>
+    <br>
+
+    <input type="checkbox" class="form-check-input">
+    <label class="form-check-label">Last One Day</label>
+    <br>
+    <input type="checkbox" class="form-check-input">
+    <label class="form-check-label">Last 3 Days</label>
+    <br>
+    <input type="checkbox" class="form-check-input">
+    <label class="form-check-label">Last 6 Days</label>
+    <br>
+
+    <input type="checkbox" class="form-check-input">
+    <label class="form-check-label">Last 10 Days</label>
+    <br>
+
+    <input type="checkbox" class="form-check-input">
+    <label class="form-check-label">Last 1 Month</label>
+    <br>
+</div>
+
+<label for="jobtype" style=" font-weight: bold;">Filter Jobs</label>
+<div class="progress">
+    <div class="progress-bar w-50" role="progressbar" aria-valuenow="50" aria-valuemin="0"
+         aria-valuemax="1000"></div>
+</div>
+
+</div>
+
+
+<h1>sort</h1>
+<div class="col-3">
+    <div class="input-group">
+        {% for job_type in job_types %}
+        <button class="btn btn-primary btn-sm my-4">{{ job_type.type_name }}</button>
+
+        <p class="text-muted">{{ job_type.created_at }}</p>
+        {% endfor %}
+
+
+    </div>

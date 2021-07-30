@@ -1,0 +1,66 @@
+{% extends 'jobs/base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+
+<!-- Header start -->
+{% block navbar %}
+{% endblock %}
+<!-- Header end -->
+<!-- brand -->
+{% block brand %}
+{% endblock %}
+<!--brand end -->
+<!-- sliders -->
+{% block sliders %}
+{% endblock %}
+<!--sliders end -->
+
+
+{% block content %}
+
+<section>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <h2>
+                <a href="{% url 'login' %}">Already Registered</a>
+                </h2>
+            </div>
+            <div class="col-md-6 border">
+                <div class="content-section align-center">
+            <form method="post">
+                {% csrf_token %}
+                <fieldset class="form-group">
+                    <legend class="border-bottom  mt-3 mb-4">SIGN UP TO POST OR SEARCH FOR A JOB</legend>
+                    {{ form|crispy }}
+                </fieldset>
+
+                <div class="form-group ml-0">
+
+                    <button class="btn btn-primary " type="submit">Sing Up</button>
+
+                </div>
+            </form>
+            <div class="border-top mb-2 ">
+                <small class="text-muted">
+                    Already Have An Account?
+                    <a href="{% url 'login' %}" class="ml-2">Sign In</a>
+                </small>
+            </div>
+
+        </div>
+            </div>
+        </div>
+
+
+
+    </div>
+</section>
+{% endblock content %}
+
+{% block footer %}
+{% endblock %}
+
+

@@ -1,0 +1,74 @@
+{% extends 'jobs/base.html' %}
+{% load static %}
+
+<!-- sliders -->
+{% block sliders %}
+{% endblock %}
+<!--sliders end -->
+{% block content %}
+<section>
+    <div class="container">
+        <h3 class="mt-5">Get In Touch</h3>
+        <div class="row">
+            <div class="col-md-9 mt-4">
+                <form action="{% url 'send_email' %}" method="post">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-md-11">
+                            <div class="input-group">
+
+                                <textarea class="form-control mt-2 mb-2" rows="6" name="message"
+                                          placeholder="Enter Message"></textarea>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control mb-4 mt-4" placeholder="Enter your name"
+                                           name="name">
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="email" class="form-control mb-2 mt-4" placeholder="Enter email address"
+                                           name="email">
+                                </div>
+                            </div>
+
+                            <div class="input-group">
+                                <input type="text" class="form-control mb-2 mt-2" placeholder="Subject"
+                                       name="subject">
+                            </div>
+                            <div class="input-group mb-2">
+                                <input type="submit" name="Submit" value="SEND" class="btn btn-primary ml-0">
+
+                            </div>
+
+                        </div>
+                    </div>
+
+
+                </form>
+
+            </div>
+            <div class="col-md-3 mt-4">
+                <div class="additional-info">
+
+                    <img src="{% static 'images/home_32px.png' %}" alt="image" class="rounded float-left mr-3">
+                    <p style="margin-bottom:1px;">Kutus, Kenya</p>
+                    <p class="text-muted">Kirinyaga University, 134 East</p>
+
+
+                    <img src="{% static 'images/phone.png' %}" alt="image" class="rounded float-left mr-3">
+                    <p style="margin-bottom:1px;">+25471231244</p>
+                    <p class="text-muted">Mon to Fri 8AM to 6PM</p>
+
+
+                    <img src="{% static 'images/secured_letter.png' %}" alt="image" class="rounded float-left mr-3">
+                    <p style="margin-bottom:1px;">support@gmail.com</p>
+                    <p class="text-muted">Send us a querry at any time</p>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock content %}
+

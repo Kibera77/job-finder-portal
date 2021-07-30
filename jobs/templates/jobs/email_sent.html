@@ -1,0 +1,42 @@
+{% extends 'jobs/base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+
+<!-- Header start -->
+{% block navbar %}
+{% endblock %}
+<!-- Header end -->
+
+<!-- brand -->
+{% block brand %}
+{% endblock %}
+<!--brand end -->
+
+<!-- sliders -->
+{% block sliders %}
+{% endblock %}
+<!--sliders end -->
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <a href="{% url 'home' %}" class="btn btn-primary btn-sm">Back</a>
+        </div>
+        <div class="col-md-7">
+            <h1>THANKS FOR CONTACTING US</h1>
+            <br>
+            <div class="alert alert-info">
+                Your Email has been sent successfully. We will get back to you as soon as possible!
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+{% endblock content %}
+
+{% block footer %}
+{% endblock %}

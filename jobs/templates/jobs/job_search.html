@@ -1,0 +1,113 @@
+{% extends 'jobs/base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+<!-- sliders -->
+{% block sliders %}
+{% endblock %}
+<!--sliders end -->
+
+{% block content %}
+<section>
+    <div class="container">
+        <div class="row mt-5 mb-5">
+            <div class="col-md-3">
+                <img src="{% static 'images/mail_filter_32px.png' %}" alt="" class="rounded float-left mr-2">
+                <h5>Filter Jobs</h5>
+                <br>
+                <div class="row">
+
+                </div>
+                <form method="get" class="form-group">
+
+
+                    <div style="border: 1px solid black;">
+                        <br>
+                        {{ myFilter.form|crispy }}
+                        <br>
+                        <button type="submit" class="btn btn-primary btn-sm">Search</button>
+                        <br>
+
+                    </div>
+
+                </form>
+
+
+            </div>
+
+            <!--  Job Listings Start  -->
+            <div class="col-md-9 col-xs-12 mb-4">
+
+                <h5 class="">Jobs Available</h5>
+                {% for jobs in page_obj.object_list %}
+
+
+                <div class="row mt-5">
+                    <div class="col-md-2 col-xs-12"><a href="#">
+                        <img class="rounded float-left mr-2" src="{{ jobs.thumbnail.url }}" height="100px"
+                             width="100px" alt="">
+                    </a>
+                    </div>
+                    <div class="col-md-8 col-xs-12">
+                        <a href="#">{{ jobs.job_name }}</a>
+                        <div class="row">
+                            <div class="col-md-3">
+                                <p class="text-muted small">{{ jobs.company_name }}</p>
+                            </div>
+                            <div class="col-md-3">
+                                <img class="rounded float-left mr-1" src="{% static 'images/marker_50px.png' %}"
+                                     width="16px" height="16px" alt="">
+                                <p class="text-muted small">{{ jobs.location }}</p>
+                            </div>
+                            <div class="col-md-3">
+                                <p class="text-muted small">KSH : {{ jobs.pricing }}</p>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-md-2">
+                        <a class="btn btn-secondary btn-sm" href="{% url 'apply' %}">Apply</a>
+                    </div>
+
+                </div>
+                <hr>
+
+                <!--   Job listings End-->
+                {% empty %}
+                <h2 style="color: red;">No Jobs Found!!</h2>
+                {% endfor %}
+
+                <!-- Pagination starts -->
+                <span class="current text-muted">
+                        Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                    </span>
+
+                <div class="pagination ml-0">
+
+                    {% if page_obj.has_previous %}
+                    <li class="page-item"><a href="?page=1" class="btn btn-outline btn-info mb-3 btn-sm">&laquo; First</a>
+                    </li>
+                    <li class="page-item"><a href="?page={{ page_obj.previous_page_number }}"
+                                             class="btn btn-outline btn-info mb-3 btn-sm"> << Prev</a>
+                    </li>
+                    {% endif %}
+                    {% if page_obj.has_next %}
+                    <li class="page-item"><a href="?page={{ page_obj.next_page_number }}"
+                                             class="btn btn-outline btn-info mb-3 btn-sm">Next >></a>
+                    </li>
+                    <li class="page-item"><a href="?page={{ page_obj.paginator.num_pages }}"
+                                             class="btn btn-outline btn-info mb-3 btn-sm">Last >></a></li>
+                    {% endif %}
+
+                </div>
+                <!--  pagination ends   -->
+
+
+            </div>
+
+        </div>
+    </div>
+</section>
+{% endblock content %}
+
+
