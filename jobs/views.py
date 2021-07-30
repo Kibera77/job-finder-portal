@@ -31,7 +31,7 @@ def job_search(request):
     myFilter = JobFilter(request.GET, queryset=job_posts)
     job_posts = myFilter.qs
 
-    paginator = Paginator(job_posts, 1)  # show 3 job posts per page
+    paginator = Paginator(job_posts, 10)  # show 10 job posts per page
 
     page_number = request.GET.get('page')
     try:
